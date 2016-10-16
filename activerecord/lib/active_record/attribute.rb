@@ -1,4 +1,4 @@
-module ActiveRecord
+﻿module ActiveRecord
   class Attribute # :nodoc:
     class << self
       def from_database(name, value, type)
@@ -65,7 +65,7 @@ module ActiveRecord
 
     def with_value_from_user(value)
       type.assert_valid_value(value)
-      self.class.from_user(name, value, type, self)
+      self.class.from_user(name, value, type, original_attribute || self)
     end
 
     def with_value_from_database(value)
